@@ -1,0 +1,150 @@
+<p>You can pass an existing component as content of the modal window. In this case remember to add content component as an
+    <code>entryComponents</code> section of your
+    <code>NgModule</code>.</p>
+
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Opportunity update</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form role="form" #Modalform="ngForm">
+            <div class="form-group">
+                <label for="titlename">Title</label>
+                <div class="input-group">
+                    <input maxlength="100" id="titlename" [(ngModel)]="editableData.title" class="form-control" placeholder="Title Name" name="titlename">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="appEndDate">Application End Date</label>
+                <div class="input-group">
+                    <input
+                    type="date"
+                        id="appEndDate" 
+                        [(ngModel)]="editableData.appCloseDate" 
+                        class="form-control" placeholder="yyyy-mm-dd" 
+                        name="appEndDate"
+                        ngbDatepicker
+                        #d="ngbDatepicker"
+                        >
+                    
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="EarlyStartDate">Earliest Start Date</label>
+                <div class="input-group">
+                    <input type="date" 
+                    id="EarlyStartDate" 
+                    [(ngModel)]="editableData.EarlyStartDate" 
+                    class="form-control" placeholder="yyyy-mm-dd" 
+                    name="EarlyStartDate"
+                    ngbDatepicker
+                        #d="ngbDatepicker">
+                    
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="latestEndDate">Latest End Date</label>
+                <div class="input-group">
+                    <input id="latestEndDate" [(ngModel)]="editableData.LatestEndDate" class="form-control" placeholder="yyyy-mm-dd" name="latestEndDate">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" (click)="latestEndDate.toggle()" type="button">
+                            <img src="img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;" />
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <div class="input-group">
+                    <input id="description" [(ngModel)]="editableData.Description" class="form-control" placeholder="Description" name="description">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="background">Backgrounds</label>
+                <div class="input-group">
+                    <div *ngFor="let background of backgrounds">
+                        <input type="checkbox" [checked]="checkBG(background)" (change)="onChangeBG(background, $event.target.checked)" name="background"> {{background.name}}
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="skills">Skills</label>
+                <div class="input-group">
+                    <div *ngFor="let skill of skills">
+                        <input type="checkbox" [checked]="checkSkill(skill)" (change)="onChangeSkill(skill, $event.target.checked)" name="skill"> {{skill.name}}
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="selection_process">Selection Process</label>
+                <div class="input-group">
+                    <input id="selection_process" [(ngModel)]="editableData.selectionProcess" class="form-control" placeholder="selection process"
+                        name="selection_process">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="salary">Salary</label>
+                <div class="input-group">
+                    <input id="salary" [(ngModel)]="editableData.salary" class="form-control" placeholder="Salary" name="salary">
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="c('Save Click')">Save</button>
+    </div>
+</ng-template>
+
+
+<table>
+    <tr>
+        <th>Title</th>
+        <td>{{editableData.title}}</td>
+    </tr>
+    <tr>
+        <th>Application Close Date</th>
+        <td>{{editableData.appCloseDate}}</td>
+    </tr>
+    <tr>
+        <th>Earliest Start Date</th>
+        <td>{{editableData.EarlyStartDate}}</td>
+    </tr>
+    <tr>
+        <th>Latest End Date</th>
+        <td>{{editableData.LatestEndDate}}</td>
+    </tr>
+    <tr>
+        <th>Description</th>
+        <td>{{editableData.Description}}</td>
+    </tr>
+    <tr>
+        <th>BackGrounds</th>
+        <td *ngFor="let back of editableData.Backgrounds">
+            {{back.name}}
+        </td>
+    </tr>
+    <tr>
+        <th>Skills</th>
+        <td *ngFor="let skill of editableData.skills">
+            {{skill.name}}
+        </td>
+    </tr>
+    <tr>
+        <th>Selection Process</th>
+        <td>{{editableData.selectionProcess}}</td>
+    </tr>
+    <tr>
+        <th>Salary</th>
+        <td>{{editableData.salary}}</td>
+    </tr>
+</table>
+
+
+<button class="btn btn-lg btn-outline-primary" (click)="open(content)">
+    <i>Edit</i>
+</button>
