@@ -7,14 +7,14 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { HttpService } from './services/http.service';
 import { EditableDataModalComponent } from './modal/EditableDataModal';
-import { EditableDataModalContent } from './modal/content/EditableDataModalContent';
 import { AgmCoreModule } from '@agm/core';
+import { CustomDatePipe } from './pipes/date.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     EditableDataModalComponent,
-    EditableDataModalContent
+    CustomDatePipe  
   ],
   imports: [
     BrowserModule,
@@ -27,7 +27,7 @@ import { AgmCoreModule } from '@agm/core';
       libraries: ["places"]
     })
   ],
-  entryComponents: [EditableDataModalContent],
+  exports: [CustomDatePipe],
   providers: [HttpService],
   bootstrap: [AppComponent]
 })

@@ -2,24 +2,14 @@
   <div class="page">
     <h1>Overview</h1>
     <table>
-
-      <tr>
-        <th>
-          Title
-        </th>
-        <th>
-          Value
-        </th>
-      </tr>
-
       <tr>
         <td>
           Organization
         </td>
         <td>
-          {{org_name}}
+          {{overview.orgName}}
           <tr>
-            {{obj.location}}
+            {{overview.orgLocation}}
           </tr>
         </td>
       </tr>
@@ -29,7 +19,7 @@
           Role Description
         </td>
         <td>
-          {{obj.description}}
+          {{overview.roleDesc}}
         </td>
       </tr>
       <hr />
@@ -58,7 +48,7 @@
           Nationalities
         </td>
         <td>
-          {{obj.nationalities[0].name}}
+          {{backgrd.bgNationality}}
         </td>
       </tr>
 
@@ -67,7 +57,7 @@
           Selection Process
         </td>
         <td>
-          {{obj.role_info.selection_process}}
+          {{backgrd.bgSelectionProcess}}
         </td>
       </tr>
 
@@ -77,14 +67,14 @@
           Working hours
         </td>
         <td>
-          {{obj.specifics_info.expected_work_schedule.from}}
+          {{vL.workHours}}
         </td>
       </tr>
       
       <tr>
         <td></td>
         <td>
-          {{weekend}}
+          {{vL.weekend}}
         </td>
       </tr>
 
@@ -100,7 +90,7 @@
           </tr>
           <tr>
             <td>
-              {{obj.legal_info.visa_type}}
+              {{vL.type}}
             </td>
           </tr>
         </td>
@@ -117,7 +107,7 @@
             </tr>
             <tr>
               <td>
-                {{obj.legal_info.visa_duration}}
+                {{vL.duration}}
               </td>
             </tr>
           </td>
@@ -134,7 +124,7 @@
               </tr>
               <tr>
                 <td>
-                  {{obj.legal_info.visa_link}}
+                  {{vL.link}}
                 </td>
               </tr>
             </td>
@@ -145,7 +135,7 @@
               Health Insurance
             </td>
             <td>
-              {{obj.legal_info.health_insurance_info}}
+              {{vL.insurance}}
             </td>
           </tr>
 
@@ -154,9 +144,9 @@
                 Host AIESEC office
               </td>
               <td>
-                {{obj.host_lc.full_name}}
+                {{vL.hostOffice}}
               </td>
-            </tr>
+            </tr> 
     </table>
     <editable-modal-component [editableData]="editableData"></editable-modal-component>
   </div>
