@@ -9,12 +9,14 @@ import { HttpService } from './services/http.service';
 import { EditableDataModalComponent } from './modal/EditableDataModal';
 import { AgmCoreModule } from '@agm/core';
 import { CustomDatePipe } from './pipes/date.pipe';
+import { DataComponent } from './data/data.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EditableDataModalComponent,
-    CustomDatePipe  
+    CustomDatePipe,
+    DataComponent  
   ],
   imports: [
     BrowserModule,

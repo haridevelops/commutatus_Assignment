@@ -15,13 +15,12 @@ import {
 } from '@ng-bootstrap/ng-bootstrap';
 import * as moment from 'moment';
 
-import { EditableData } from '../app.component';
 import { HttpService } from '../services/http.service';
 import { CustomDatePipe } from '../pipes/date.pipe';
 import { FormControl } from '@angular/forms';
 
 import { MapsAPILoader } from '@agm/core';
-import { NgbDateStructAdapter } from '@ng-bootstrap/ng-bootstrap/datepicker/adapters/ngb-date-adapter';
+import { EditableData } from '../data/data.component';
 
 const now = new Date();
 

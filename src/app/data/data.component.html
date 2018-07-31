@@ -1,0 +1,187 @@
+<div id="navbar" class="navbar navbar-default">
+  <ul>
+    <li>
+      <a href="#overview">Overview</a>
+    </li>
+    <li>
+      <a href="#background">Backgrounds</a>
+    </li>
+    <li>
+      <a href="#vl">Visa and Logistics</a>
+    </li>
+    <li>
+      <a href="#upo">Update Opportunity</a>
+    </li>
+  </ul>
+</div>
+
+
+<div class="container">
+  <div class="page">
+    <h1 id="overview">Overview</h1>
+    <table class="table">
+      <tr>
+        <td>
+          Organization
+        </td>
+        <td>
+          {{overview.orgName}}
+          <tr>
+            {{overview.orgLocation}}
+          </tr>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          Role Description
+        </td>
+        <td>
+          {{overview.roleDesc}}
+        </td>
+      </tr>
+
+      <h1 id="background">Backgrounds</h1>
+      <tr>
+        <td>
+          Background
+        </td>
+        <td *ngFor="let back of background">
+          {{back.name}}
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          Skills
+        </td>
+        <td *ngFor="let skill of skills">
+          {{skill.name}}
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          Nationalities
+        </td>
+        <td>
+          {{backgrd.bgNationality}}
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          Selection Process
+        </td>
+        <td>
+          {{backgrd.bgSelectionProcess}}
+        </td>
+      </tr>
+
+      <h1 id="vl">Visa and Logistics</h1>
+      <tr>
+        <td>
+          Working hours
+        </td>
+        <td>
+          {{vL.workHours}}
+        </td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td>
+          {{vL.weekend}}
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          Visa
+        </td>
+        <td>
+          <tr>
+            <th>
+              VISA TYPE
+            </th>
+          </tr>
+          <tr>
+            <td>
+              {{vL.type}}
+            </td>
+          </tr>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+        </td>
+        <td>
+          <tr>
+            <th>
+              VISA DURATION
+            </th>
+          </tr>
+          <tr>
+            <td>
+              {{vL.duration}}
+            </td>
+          </tr>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+        </td>
+        <td>
+          <tr>
+            <th>
+              VISA LINK
+            </th>
+          </tr>
+          <tr>
+            <td>
+              {{vL.link}}
+            </td>
+          </tr>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          Health Insurance
+        </td>
+        <td>
+          {{vL.insurance}}
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          Host AIESEC office
+        </td>
+        <td>
+          {{vL.hostOffice}}
+        </td>
+      </tr>
+    </table>
+    <div id="upo">
+      <editable-modal-component [editableData]="editableData"></editable-modal-component>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+      <div class="form-group">
+        <label for="map">Location</label>
+        <input id="map" placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control"
+          #search [formControl]="searchControl">
+      </div>
+    <agm-map style="height: 300px; width: 45%;" [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+      <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+    </agm-map>
+<hr />
+  <button class="btn btn-lg btn-outline-primary" (click)="update()">
+    <i>Update</i>
+  </button>
+</div>

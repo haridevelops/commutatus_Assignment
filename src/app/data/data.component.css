@@ -1,0 +1,21 @@
+#navbar {
+    background-color: rgb(99, 85, 85);
+    text-align: center;
+}
+  
+#navbar a {
+    color: #f2f2f2;
+    padding: 5px;
+    text-decoration: none;
+    font-size: 17px;
+}
+  
+#navbar a:hover {
+    background-color: #ddd;
+    color: black;
+} 
+
+li {
+    display: inline;
+    padding: 0.5em;
+}
